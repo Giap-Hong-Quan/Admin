@@ -9,7 +9,7 @@ const AdminLayout = () => {
   return (
     <div>
       <div className="flex">
-        <Sidebar />
+        <Sidebar  />
         <div className="w-full">
           <Header />
           <Outlet />

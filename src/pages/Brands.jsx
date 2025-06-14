@@ -45,7 +45,6 @@ const Brands = () => {
         imagePath: imageUrls,
         createdAt: createdAt,
       };
-
       if (isEditMode) {
         // Gọi hàm cập nhật (bạn phải tạo trong `brandService.js`)
         await updateBrand(editingBrandId, brandData);
@@ -108,7 +107,7 @@ const Brands = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-6">
             <div className=" lg:flex items-center space-x-4">
-              <h1 className="text-2xl font-semibold text-gray-900 font-extrabold">
+              <h1 className="text-2xl text-gray-900 font-extrabold">
                 Thương hiệu{" "}
               </h1>
               <div className=" flex items-center space-x-2 bg-gray-100 rounded-md lg:px-3 py-1.5">
@@ -143,7 +142,6 @@ const Brands = () => {
                 </svg>
               </div>
             </div>
-
             <div className="lg:flex items-center space-x-3 space-y-3 lg:space-y-0 ">
               <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <svg

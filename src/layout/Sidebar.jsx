@@ -6,39 +6,13 @@ import {
   ShoppingCart,
 } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { menuItems } from "../libs/Contand";
 
 const Sidebar = () => {
   // thay vì set usestate khi load lại sẽ qua về / mặc định thì dùng thgthg useLocation khi load không quay về
   // const [activeItem, setActiveItem] = useState("/");
   const location = useLocation();
   const navigate = useNavigate();
-  const menuItems = [
-    {
-      path: "/",
-      label: "Thống kê",
-      icon: BarChart3,
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      path: "/brands",
-      label: "Thương hiệu",
-      icon: Tag,
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      path: "/products",
-      label: "Sản phẩm",
-      icon: Package,
-      color: "from-green-500 to-emerald-500",
-    },
-    {
-      path: "/orders",
-      label: "Đơn hàng",
-      icon: ShoppingCart, // icon mới dễ nhận biết hơn
-      color: "from-yellow-500 to-orange-500",
-    },
-  ];
-
   return (
     <>
       <aside
@@ -108,7 +82,6 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
-
         {/* Right border gradient */}
         <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
       </aside>
