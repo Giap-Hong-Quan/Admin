@@ -1,7 +1,30 @@
 import ApiAdmin from "../api/ApiAdmin";
 //lấy hết dữ liệu
+// 1. Get all products
 export const getAllProducts = async () => {
   const result = await ApiAdmin.get("products.json");
   const data = result.data;
-  return Object.keys(data || {}).map((key) => data[key]);
+  return Object.keys(data || {}).map((key) => ({
+    id: key,
+    ...data[key],
+  }));
+};
+// 2. Get product by ID
+export const getProductById = async (id) => {
+  const result = await ApiAdmin.get(`products/${id}.json`);
+  return result.data;
+};
+// 3. Add product
+export const addProduct = async (productData) => {
+  const result = await ApiAdmin.post("products.json", productData);
+  return result.data;
+};
+// 4. Update product
+export const updateProduct = async (id, productData) => {
+  await ApiAdmin.put(`products/${id}.json`, productData);
+};
+
+// 5. Delete product
+export const deleteProduct = async (id) => {
+  await ApiAdmin.delete(`products/${id}.json`);
 };

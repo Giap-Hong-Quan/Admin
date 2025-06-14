@@ -68,11 +68,16 @@ const Products = () => {
                       </td>
                       <td className="px-6 py-2 whitespace-nowrap">
                         <div className="w-14 h-14 bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
-                          <img
-                            src={product.listImageProduct.img1.url}
-                            alt={product.name}
-                            className="w-full h-full object-contain "
-                          />
+                          {Object.entries(product.listImageProduct).map(
+                            ([key, value]) => (
+                              <img
+                                key={key}
+                                src={value.url}
+                                alt={product.name}
+                                className="w-full h-full object-contain"
+                              />
+                            )
+                          )}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-gray-900">
