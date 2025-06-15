@@ -276,13 +276,13 @@ const Brands = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {brands.map((brand) => (
+                  {brands.map((brand, index) => (
                     <tr
                       key={brand.id}
                       className="hover:bg-gray-50 transition-colors duration-150"
                     >
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {brand.id}
+                        {index + 1}
                       </td>
                       <td className="px-6 py-2 whitespace-nowrap">
                         <div className="w-14 h-14 bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
@@ -302,15 +302,6 @@ const Brands = () => {
                       <td className="px-6 py-4 whitespace-nowrap text-center">
                         <div className="flex items-center justify-center space-x-2">
                           <button
-                            className="p-1.5 text-gray-400 hover:text-red-700 transition-colors duration-200"
-                            title="Delete"
-                            onClick={() => {
-                              handleDelete(brand.id);
-                            }}
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
-                          <button
                             className="p-1.5 text-gray-400 hover:text-yellow-600 transition-colors duration-200"
                             title="Edit"
                             onClick={() => {
@@ -323,6 +314,15 @@ const Brands = () => {
                             }}
                           >
                             <Pencil className="w-4 h-4" />
+                          </button>
+                          <button
+                            className="p-1.5 text-gray-400 hover:text-red-700 transition-colors duration-200"
+                            title="Delete"
+                            onClick={() => {
+                              handleDelete(brand.id);
+                            }}
+                          >
+                            <Trash2 className="w-4 h-4" />
                           </button>
                         </div>
                       </td>

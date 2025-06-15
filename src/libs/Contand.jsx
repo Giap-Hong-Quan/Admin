@@ -1,4 +1,4 @@
-import { BarChart3, Package, ShoppingCart, Tag } from "lucide-react";
+import { BarChart3, Package, ShoppingCart, Tag, Users } from "lucide-react";
 
 export const menuItems = [
   {
@@ -6,6 +6,12 @@ export const menuItems = [
     label: "Thống kê",
     icon: BarChart3,
     color: "from-blue-500 to-cyan-500",
+  },
+  {
+    path: "/users",
+    label: "Tài khoản",
+    icon: Users, // hoặc dùng icon User nếu chỉ là 1 người
+    color: "from-red-500 to-pink-600",
   },
   {
     path: "/brands",

@@ -16,15 +16,18 @@ export const getProductById = async (id) => {
 };
 // 3. Add product
 export const addProduct = async (productData) => {
-  const result = await ApiAdmin.post("products.json", productData);
-  return result.data;
+  // 1. Gửi POST để thêm sản phẩm mới
+  const res = await ApiAdmin.post("products.json", productData);
+  const generatedId = res.data.name; // Firebase trả về id (tên key)
+  await ApiAdmin.patch(`products/${generatedId}.json`, { id: generatedId });
+  return { ...productData, id: generatedId };
 };
 // 4. Update product
 export const updateProduct = async (id, productData) => {
-  await ApiAdmin.put(`products/${id}.json`, productData);
+  await ApiAdmin.patch(`products/${id}.json`, productData);
 };
 
 // 5. Delete product
-export const deleteProduct = async (id) => {
+export const deleteProducts = async (id) => {
   await ApiAdmin.delete(`products/${id}.json`);
 };

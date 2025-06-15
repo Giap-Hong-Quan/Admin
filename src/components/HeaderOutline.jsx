@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { menuItems } from "../libs/Contand";
 import Modal from "./Modal";
 
-const HeaderOutline = ({ showModal }) => {
+const HeaderOutline = ({ showModal, isEditMode }) => {
   const location = useLocation();
   const currentItem = menuItems.find((item) => item.path === location.pathname);
 
@@ -82,7 +82,10 @@ const HeaderOutline = ({ showModal }) => {
             </button>
           </div>
           <button
-            onClick={showModal}
+            onClick={() => {
+              isEditMode(); // chuyển về chế độ thêm mới
+              showModal(); // mở modal
+            }}
             className="flex items-center justify-center px-4 py-2 bg-purple-600 text-white text-sm font-medium rounded-md hover:bg-purple-700 transition-colors"
           >
             <Plus className="w-4 h-4 " />
