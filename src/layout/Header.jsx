@@ -1,6 +1,8 @@
 import { Bell, Search, User, Settings, Menu } from "lucide-react";
+import { useState } from "react";
 
 const Header = () => {
+   const [open, setOpen] = useState(false);
   const raw = localStorage.getItem("token");
   const data = raw ? JSON.parse(raw) : null;
   console.log(data.name)
@@ -47,12 +49,34 @@ const Header = () => {
                 <p className="text-sm font-medium text-white">{data.name}</p>
                 <p className="text-xs text-blue-200/80">Quản trị viên</p>
               </div>
-              <button className="relative group">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-105 transition-all duration-300 ring-2 ring-white/20 group-hover:ring-white/40">
-                  <User className="w-5 h-5 text-white" />
-                </div>
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-slate-900"></div>
-              </button>
+                <div className="relative">
+      {/* Nút avatar */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="relative group focus:outline-none"
+      >
+        <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-105 transition-all duration-300 ring-2 ring-white/20 group-hover:ring-white/40">
+          <User className="w-5 h-5 text-white" />
+        </div>
+        <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-slate-900"></div>
+      </button>
+
+      {/* Dropdown */}
+      {open && (
+        <div className="absolute right-0 mt-2 w-40 bg-white shadow-xl rounded-md z-50">
+          <button
+            onClick={() => {
+              // 👉 Xử lý đăng xuất ở đây
+              localStorage.removeItem("token");
+              window.location.href = "/login"; // hoặc navigate('/login') nếu dùng React Router
+            }}
+            className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          >
+            Đăng xuất
+          </button>
+        </div>
+      )}
+    </div>
             </div>
           </div>
         </div>
