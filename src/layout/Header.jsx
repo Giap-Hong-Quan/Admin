@@ -1,6 +1,9 @@
 import { Bell, Search, User, Settings, Menu } from "lucide-react";
 
 const Header = () => {
+  const raw = localStorage.getItem("token");
+  const data = raw ? JSON.parse(raw) : null;
+  console.log(data.name)
   return (
     <header className=" bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 text-white shadow-2xl">
       <div className="  bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-pulse"></div>
@@ -41,7 +44,7 @@ const Header = () => {
             {/* Profile */}
             <div className="flex items-center space-x-3 pl-3 border-l border-white/20">
               <div className="hidden lg:block text-right">
-                <p className="text-sm font-medium text-white">Nguyễn Văn A</p>
+                <p className="text-sm font-medium text-white">{data.name}</p>
                 <p className="text-xs text-blue-200/80">Quản trị viên</p>
               </div>
               <button className="relative group">

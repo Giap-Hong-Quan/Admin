@@ -15,7 +15,7 @@ const AdminLayout = () => {
           <Outlet />
         </div>
       </div>
-      <ToastContainer
+      {/* <ToastContainer
         position="top-right"
         autoClose={3000}
         hideProgressBar={false}
@@ -24,7 +24,7 @@ const AdminLayout = () => {
         pauseOnHover
         draggable
         theme="light"
-      />
+      /> */}
     </div>
   );
 };
